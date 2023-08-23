@@ -39,6 +39,9 @@ orderRoute.patch("/update",adminauth,async(req,res)=>{
         const order = await orderModel.findById(order_id);
         const vehicle = await deliveryvehicleModel.findById(order.deliveryVehicleID)
         if(order){
+            if (vehicle.activeOrdersCount <= 0 || vehicle.activeOrdersCount > 2) {
+                return res.status(400).json({ error: 'Invalid activeOrdersCount value' });
+            }
             const update_vehicle = await deliveryvehicleModel.findByIdAndUpdate(order.deliveryVehicleID,{activeOrdersCount : vehicle.activeOrdersCount-1});
             const update_order = await orderModel.findByIdAndUpdate(order_id,{isDelivered : true});
             res.send({"msg" : "Order updated successfully"})
