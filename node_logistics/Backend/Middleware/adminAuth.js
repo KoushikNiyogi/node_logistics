@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken")
 const adminauth =  (req, res, next) => {
    const token = req.headers.authorization
+   console.log(token)
    if (token) {
       const decoded = jwt.verify(token,"node-logistics-admin")
       console.log(decoded)

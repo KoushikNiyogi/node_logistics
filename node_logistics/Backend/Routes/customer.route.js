@@ -10,6 +10,7 @@ customerRoute.post("/register", async(req,res)=>{
     console.log(req.body)
     try {
         let ExistingUser = await customerModel.findOne({ email: email })
+        console.log(ExistingUser);
         if (ExistingUser) {
             res.send({ msg: "User Already Exists, Try Login" })
         } else {

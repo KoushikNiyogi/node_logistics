@@ -14,6 +14,18 @@ const orderRoute = express.Router();
     deliveryVehicleID: { type: String },
     isDelivered: { type: Boolean }
 */
+
+orderRoute.get("/",async(req,res)=>{
+    try {
+        const data = await orderModel.find()
+        res.send({"data" : data})
+      } catch (error) {
+        console.log(error)
+        res.send({"msg" : "There is some error while fetching orders data"})
+      }
+})
+
+
 orderRoute.post("/add", async (req, res) => {
     try {
         const { itemID, price,customerID } = req.body;
