@@ -4,6 +4,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Items from "./Items";
 import Vehicles from "./vehicles";
+import Orders from "./Order";
 
 
 const MainRoutes = () => {
@@ -13,6 +14,7 @@ const MainRoutes = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/items" element={<Items />}/>
         <Route path="/vehicles" element={<Vehicles />}/>
+        <Route path="/orders" element={<Orders />}/>
       </Routes>
     );
   };

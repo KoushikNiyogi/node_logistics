@@ -49,6 +49,7 @@ orderRoute.patch("/update",adminauth,async(req,res)=>{
     try {
         const { order_id ,orderNumber } = req.body;
         const order = await orderModel.findById(order_id);
+        console.log(order);
         const vehicle = await deliveryvehicleModel.findById(order.deliveryVehicleID)
         if(order){
             if (vehicle.activeOrdersCount <= 0 || vehicle.activeOrdersCount > 2) {

@@ -30,7 +30,7 @@ function Items() {
     // You can replace this with your actual order API request
 
   
-    fetch("http://localhost:4040/order/add", {
+    fetch("https://node-logistics-backend.onrender.com/order/add", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ function Items() {
   const handleUpdatePrice = ()=>{
      
   
-    fetch("http://localhost:4040/item/update", {
+    fetch("https://node-logistics-backend.onrender.com/item/update", {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
